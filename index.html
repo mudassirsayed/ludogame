@@ -1,0 +1,50 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="styles.css" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Bowlby+One+SC&display=swap" rel="stylesheet">
+    <title>LUDO</title>
+</head>
+<body>
+    <div class="container">
+        <h1>PLAY</h1>
+        <div class="dice">
+            <p>PLAYER 1</p>
+            <img src="images/dice2.png" id="play1">
+        </div>
+        <div class="dice">
+            <p>PLAYER 2</p>
+            <img src="images/dice6.png" id="play2">
+        </div>    
+        <div>
+            <button onclick = "dice()">CLICK ME</button>
+        </div>
+    </div>
+<script>
+
+    dice = () => {
+
+        const dice1 = Math.floor(Math.random() * 6) + 1;
+        const player1 = `images/dice${dice1}.png`;
+        document.getElementById('play1').setAttribute('src',player1);
+        
+        const dice2 = Math.floor(Math.random() * 6) + 1;
+        const player2 = `images/dice${dice2}.png`;
+        document.getElementById('play2').setAttribute('src',player2);
+
+        if(player1 > player2){
+            document.querySelector('h1').innerHTML = "PLAYER 1 WON";
+        }
+        else if(player2 > player1){
+            document.querySelector('h1').innerHTML = "PLAYER 2 WON";
+        }
+        else{
+            document.querySelector('h1').innerHTML = "MATCH TIE";
+        }
+}
+
+</script>
+</body>
+</html>
